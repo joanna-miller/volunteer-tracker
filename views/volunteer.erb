@@ -1,0 +1,16 @@
+<% if @volunteer %>
+  <h2>Volunteer Name: <%= @volunteer.name%></h2>
+
+  <form action="/projects/<%= @volunteer.project_id %>/volunteers/<%= @volunteer.id %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+
+    <label for="name">Update Volunteer Name</label>
+    <input id="name" name="name" type="text" required>
+
+    <button type="submit">Update Volunteer</button>
+  </form>
+
+<% else %>
+  <h3>You are trying to view the details page of a volunteer that is not in our system.</h3>
+  <p>To go back to the projects page click <a href="/projects">here</a>.
+<% end %>

@@ -54,3 +54,14 @@ post('/projects/:id/volunteers') do
   volunteer.save
   erb(:project)
 end
+
+get('/projects/:id/volunteers/:volunteer_id') do
+  @volunteer = Volunteer.find(params[:volunteer_id].to_i)
+  erb(:volunteer)
+end
+
+patch('/projects/:id/volunteers/:volunteer_id') do
+  @volunteer = Volunteer.find(params[:volunteer_id].to_i)
+  @volunteer.update({name: params[:name]})
+  erb(:volunteer)
+end
