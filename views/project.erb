@@ -1,7 +1,26 @@
 <% if @project %>
   <h2>Project Title: <%= @project.title%></h2>
+      
+  <h4>Add a Volunteer:</h4>
 
-  <p><em>A list of all volunteers for project will be listed here</em></p>
+  <form action="/projects/<%= @project.id %>/volunteers" method="post">
+    <div class="form-group">
+      <label for="volunteer">Volunteer Name</label>
+      <input id="volunteer" name="volunteer" class="form-control" type="text" required>
+    </div>
+    <button type="submit" class="btn">Add Volunteer</button>
+  </form>  
+  
+  <% if @volunteers.any? %>
+    <ol>
+      <% @volunteers.each do |volunteer| %>
+        <li><%= volunteer.name %> </li>
+      <% end %>
+    </ol>
+
+  <% else %>
+    <p>There are no volunteers listed for this project yet.</p>
+  <% end %>
 
   <p><a href="/projects/<%= @project.id %>/edit">Edit Project</a></p>
 

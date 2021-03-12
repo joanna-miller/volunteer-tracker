@@ -38,8 +38,6 @@ describe 'the project update path', {:type => :feature} do
   end
 end
 
-# # A user should be able to nagivate to a project's detail page and delete the project. The user will then be directed to the index page. The project should no longer be on the list of projects.
-
 describe 'the project delete path', {:type => :feature} do
   it 'allows a user to delete a project' do
     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
@@ -49,6 +47,18 @@ describe 'the project delete path', {:type => :feature} do
     click_button('Delete Project')
     visit '/'
     expect(page).not_to have_content("Teaching Kids to Code")
+  end
+end
+
+describe 'the volunteer creation path', {:type => :feature} do
+  it 'allows a user to add a volunteer to a project' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    id = test_project.id
+    visit "/projects/#{id}"
+    fill_in('volunteer', :with => 'Jane Doe')
+    click_button('Add Volunteer')
+    expect(page).to have_content('Jane Doe')
   end
 end
 
