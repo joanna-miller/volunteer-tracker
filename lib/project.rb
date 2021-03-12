@@ -30,5 +30,9 @@ class Project
     self.title == project_to_compare.title
   end
 
+  def save
+    result = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;")
+    @id = result.first["id"].to_i
+  end
 
 end
