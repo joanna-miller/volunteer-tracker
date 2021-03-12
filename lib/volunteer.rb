@@ -50,10 +50,11 @@ class Volunteer
       @name = attrs.fetch(:name)
       DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{id};")
     end
+    if (attrs.has_key?(:project_id)) && (attrs.fetch(:project_id) != nil)
+      @project_id = attrs.fetch(:project_id)
+      DB.exec("UPDATE volunteers SET project_id = '#{@project_id}' WHERE id = #{id};")
+    end
   end
-
-
-
 
   def self.find_by_project(proj_id)
     volunteers = []
