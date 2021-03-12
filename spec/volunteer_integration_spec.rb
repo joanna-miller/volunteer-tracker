@@ -6,10 +6,6 @@ require('spec_helper')
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
-# # Your project should be set up so that a volunteer can only be created if a project already exists. (This makes it easier to assign the one to many relationship in Sinatra.) Focus on getting one integration spec passing at a time.
-
-# # The user should be able to visit the home page and fill out a form to add a new project. When that project is created, the application should direct them back to the homepage.
-
 describe 'the project creation path', {:type => :feature} do
   it 'takes the user to the homepage where they can create a project' do
     visit '/'
@@ -19,6 +15,15 @@ describe 'the project creation path', {:type => :feature} do
   end
 end
 
+describe 'the project details path', {:type => :feature } do
+  it 'takes a user to a page for a specific project' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    visit '/'
+    click_link('Teaching Kids to Code')
+    expect(page).to have_content('Project Title: Teaching Kids to Code')
+  end
+end
 # # A user should be able to click on a project to see its detail. The detail page includes a form where the project can be updated. When the form is submitted, the user can be directed to either the home page or that project's detail page. (The test will work for either.)
 
 # describe 'the project update path', {:type => :feature} do

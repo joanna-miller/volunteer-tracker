@@ -1,0 +1,15 @@
+<% if @project %>
+  <h2>Project Title: <%= @project.title%></h2>
+
+  <p>A list of all volunteers for project will be listed here</p>
+
+  <p>An link to edit this project should be right below this.</p>
+
+
+
+  <a href ="/projects">Back to Projects</a>
+
+<% else %>
+  <p>You are trying to visit the project details of a project that does not exist!</p>
+  <p>To see active projects or create a new one, click <a href="/projects">here</a>.
+<% end %>
