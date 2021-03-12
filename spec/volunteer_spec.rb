@@ -75,6 +75,15 @@ describe Volunteer do
     end
   end
 
+  describe '#delete' do
+    it 'deletes a volunteer by id' do
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
+      volunteer1.save
+      volunteer1.delete
+      expect(Volunteer.all). to eq []
+    end
+  end
+
   describe '.find_by_project' do
     it 'finds all volunteers associated with a project' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})

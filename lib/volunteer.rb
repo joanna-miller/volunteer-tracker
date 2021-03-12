@@ -56,6 +56,10 @@ class Volunteer
     end
   end
 
+  def delete
+    DB.exec("DELETE FROM volunteers WHERE id = #{@id};")
+  end
+
   def self.find_by_project(proj_id)
     volunteers = []
     project_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = #{proj_id};")
