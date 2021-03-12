@@ -90,3 +90,17 @@ describe 'the volunteer delete path', {:type => :feature} do
     expect(page).to have_content('There are no volunteers listed for this project yet.')
   end
 end
+
+describe 'the volunteers list path', {:type => :feature} do
+  it 'allows a user to view a list of all volunteers' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    project_id = test_project.id.to_i
+    test_volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
+    test_volunteer.save
+    visit '/projects'
+    click_link('View All Volunteers')
+    click_link('Jasmine')
+    expect(page).to have_content('Volunteer Name: Jasmine')
+  end
+end

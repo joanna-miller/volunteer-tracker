@@ -1,5 +1,6 @@
 <% if @volunteer %>
   <h2>Volunteer Name: <%= @volunteer.name%></h2>
+  <h3>Assigned To Project: <a href="/projects/<%= @project.id %>"><%= @project.title %></a></h3>
 
   <p>To change a volunteers name, type the updated name in the form below and click the 'Update Volunteer' button.</p>
   <p>To delete a volunteer from the system, click the 'Delete Volunteer' button below.</p>
@@ -12,12 +13,16 @@
     </div>
     <button type="submit" class="btn btn-info">Update Volunteer</button>
   </form>
-
+  
   <form action="/projects/<%= @volunteer.project_id %>/volunteers/<%= @volunteer.id %>" method="post">
     <input name="_method" type="hidden" value="delete">
 
     <button type="submit" class="btn btn-info">Delete Volunteer</button>
   </form>
+
+  <p><a href="/projects">Back to Project List</a></p>
+  <p><a href="/volunteers">View All Volunteers</a></p>
+
 
 <% else %>
   <h3>You are trying to view the details page of a volunteer that is not in our system.</h3>
