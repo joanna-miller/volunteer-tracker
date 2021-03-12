@@ -11,9 +11,9 @@
     <button type="submit" class="btn">Add Volunteer</button>
   </form>  
   
-  <% if @volunteers.any? %>
+  <% if @project.volunteers.any? %>
     <ol>
-      <% @volunteers.each do |volunteer| %>
+      <% @project.volunteers.each do |volunteer| %>
         <li><%= volunteer.name %> </li>
       <% end %>
     </ol>
