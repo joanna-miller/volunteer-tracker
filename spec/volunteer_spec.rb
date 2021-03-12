@@ -55,6 +55,15 @@ describe Volunteer do
     end
   end
 
+  describe '#update' do
+    it 'updates a volunteers name by id' do
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
+      volunteer1.save
+      volunteer1.update({:name => 'Jo'})
+      expect(volunteer1.name).to eq 'Jo'
+    end
+  end
+
   describe '.find_by_project' do
     it 'finds all volunteers associated with a project' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
