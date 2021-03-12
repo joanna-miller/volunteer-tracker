@@ -17,7 +17,7 @@ class Volunteer
   end
 
   def self.all
-    all_volunteers = DB.exec("SELECT * FROM volunteers;")
+    all_volunteers = DB.exec("SELECT * FROM volunteers ORDER BY name;")
     volunteers = []
     all_volunteers.each do |volunteer|
       id = volunteer["id"].to_i
@@ -58,6 +58,18 @@ class Volunteer
 
   def delete
     DB.exec("DELETE FROM volunteers WHERE id = #{@id};")
+  end
+
+  def self.search(name)
+    searched_volunteers = DB.exec("SELECT * FROM volunteers WHERE name LIKE '#{name}%';")
+    volunteers = []
+    searched_volunteers.each do |volunteer|
+      id = volunteer["id"].to_i
+      name = volunteer["name"]
+      project_id = volunteer["project_id"].to_i
+      volunteers.push(Volunteer.new({id: id, name: name, project_id: project_id}))
+    end
+    volunteers
   end
 
   def self.find_by_project(proj_id)

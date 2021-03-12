@@ -84,6 +84,16 @@ describe Volunteer do
     end
   end
 
+  describe '.search' do
+    it 'searches for a volunteer by name' do
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
+      volunteer1.save
+      volunteer2 = Volunteer.new({:name => 'Joe', :project_id => 1, :id => nil})
+      volunteer2.save
+      expect(Volunteer.search("Jane")).to eq [volunteer1]
+    end
+  end
+
   describe '.find_by_project' do
     it 'finds all volunteers associated with a project' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
