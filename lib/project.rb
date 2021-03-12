@@ -35,4 +35,15 @@ class Project
     @id = result.first["id"].to_i
   end
 
+  def self.find(id)
+    project = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
+    if project
+      title = project["title"]
+      id = project["id"]
+      Project.new({title: title, id: id})      
+    else
+      nil
+    end
+  end
+
 end
