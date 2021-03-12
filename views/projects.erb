@@ -1,0 +1,22 @@
+<h1>Volunteer Tracker</h1>
+
+<h5>To create a new project, add a project name to the form below and click the button 'Create Project'. This new project will be added to the list. Once a project is created, you will be able to manage project details.</h5>
+
+<form action="/projects" method="post">
+  <div class="form-group">
+    <label for="title">Create a New Project</label>
+    <input id="n" name="title" class="form-control" type="text" required>
+  </div>
+  <button type="submit" class="btn">Create Project</button>
+</form>
+
+<h3>Active Projects</h3>
+<% if @projects.any? %>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><%= project.title %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no projects to display.</p>
+<% end %>
