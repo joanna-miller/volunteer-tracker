@@ -8,7 +8,7 @@ class Project
   end
 
   def self.all
-    all_projects = DB.exec("SELECT * FROM projects;")
+    all_projects = DB.exec("SELECT * FROM projects ORDER BY title;")
     projects = []
     all_projects.each() do |project|
       title = project["title"]
