@@ -8,13 +8,13 @@
       <label for="volunteer">Volunteer Name</label>
       <input id="volunteer" name="volunteer" class="form-control" type="text" required>
     </div>
-    <button type="submit" class="btn">Add Volunteer</button>
+    <button type="submit" class="btn btn-info">Add Volunteer</button>
   </form>  
   
   <% if @project.volunteers.any? %>
     <ol>
       <% @project.volunteers.each do |volunteer| %>
-        <li><%= volunteer.name %> </li>
+        <li><a href="/projects/<%= @project.id %>/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></li>
       <% end %>
     </ol>
 
