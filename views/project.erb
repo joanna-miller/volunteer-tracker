@@ -3,7 +3,7 @@
       
   <h4>Add a Volunteer:</h4>
 
-  <form action="/projects/<%= @project.id %>/volunteers" method="post">
+  <form action="/projects/<%= @project.id %>" method="post">
     <div class="form-group">
       <label for="volunteer">Volunteer Name</label>
       <input id="volunteer" name="volunteer" class="form-control" type="text" required>
@@ -19,7 +19,7 @@
     </ol>
 
   <% else %>
-    <p>There are no volunteers listed for this project yet.</p>
+    <p>There are no volunteers listed for this project yet. Assign one using the form above.</p>
   <% end %>
 
   <p><a href="/projects/<%= @project.id %>/edit">Edit Project</a></p>
