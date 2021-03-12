@@ -1,0 +1,35 @@
+<~~~~~~~ Select Options of all Active Projects to Re-Assign Volunteers ~~~~~~>
+  
+  <% if @projects.any? %>
+    <h4>Re-Assign Volunteer to a Different Project</h4>
+    <form action="/projects/<%= @volunteer.project_id %>/volunteers/<%= @volunteer.id %>" method="post">
+    <div class="form-group">
+      <input name="_method" type="hidden" value="patch">
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Choose from list of active projects:</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2" name="project_id" >
+          <% @projects.each do |project| %>
+            <option value="<%= project.id %>"><%= project.title %></option>
+          <% end %>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-info">Re-Assign Volunteer</button>
+    </form>
+  <% end %>
+
+
+  patch('/projects/:id/volunteers/:volunteer_id') do
+    @volunteer = Volunteer.find(params[:volunteer_id].to_i)
+    binding.pry
+    if params[:name] != nil
+      @volunteer.update({name: params[:name]})
+      @project = Project.find(params[:id].to_i)
+    else    
+      @volunteer.update({project_id: params[:project_id]})
+      @project = Project.find(params[:id].to_i)
+    end
+    @projects = Project.all
+    erb(:volunteer)
+  end
+
+<~~~~~~~~Intended to go on volunteer.erb if I can ever figure it out~~~~~~~~>
