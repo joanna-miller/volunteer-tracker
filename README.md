@@ -1,16 +1,27 @@
 # _{README Template}_
 
-#### _{Short Description}_
-
 #### By _**Jo Miller**_
 
+### _This project was created solely for the education of the author(s) and is not in a complete or portfolio-ready state. It should not be considered representative of professional work._
+
+\
+[Epicodus](https://www.epicodus.com/) - [Ruby and Rails](https://www.learnhowtoprogram.com/ruby-and-rails/) - [Week 3](https://www.learnhowtoprogram.com/ruby-and-rails/ruby-database-basics/database-basics-independent-project)
+
+
+Date created: 3/8/21–3/11/21
 ---
 
 ## Technologies Used
 
 * _Ruby 2.6.5_
+* _Embedded Ruby (ERB)_
 * _Rspec 3.10_
 * _Pry 0.14.0_
+* _Capybara 3.35.3_
+* _PostgreSQL 13.2_
+* _Bundler 2.2.11_
+* _Sinatra 2.1.0_
+* _pg 1.2.3_
 ---
 
 ## Description
