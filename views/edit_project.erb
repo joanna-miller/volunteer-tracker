@@ -1,5 +1,7 @@
 <h1>Project Title: <%= @project.title %></h1>
 
+<p>This project title can be edited by typing the updated name in the form below and clicking 'Update Project'.</p>
+<p>If you need to delete this project, click the 'Delete Project' button. Once a project is deleted, it will no longer display in your Project List and all of its details will be deleted.</p>
 <form action="/projects/<%= @project.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
 
@@ -9,7 +11,11 @@
   <button type="submit">Update Project</button>
 </form>
 
-<p> <em>Button to delete project should be here</em> </p>
+<form action="/projects/<%= @project.id %>" method="post">
+  <input name="_method" type="hidden" value="delete" required>
+
+  <button type="submit">Delete Project</button>
+</form>
 
 <p><a href="/projects">Back to Projects List</a></p>
 <p><a href="/projects/<%= @project.id %>">Back to Project Details</a></p>
