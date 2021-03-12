@@ -92,6 +92,15 @@ describe Volunteer do
       volunteer2.save
       expect(Volunteer.search("Jane")).to eq [volunteer1]
     end
+    it 'searches for a volunteer by partial name' do
+      volunteer1 = Volunteer.new({:name => 'Jane Doe', :project_id => 1, :id => nil})
+      volunteer1.save
+      volunteer2 = Volunteer.new({:name => 'Jane Re', :project_id => 1, :id => nil})
+      volunteer2.save
+      volunteer3 = Volunteer.new({:name => 'Joe', :project_id => 1, :id => nil})
+      volunteer3.save
+      expect(Volunteer.search("Jane")).to eq [volunteer1, volunteer2]
+    end
   end
 
   describe '.find_by_project' do
