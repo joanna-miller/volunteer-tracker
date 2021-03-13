@@ -1,0 +1,29 @@
+body {
+  background-color: #457B9D;
+  color: #f1faee;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+.btn {
+  background-color: #a8dadc;
+  border-color: #f1faee;
+  color: #f1faee;
+  margin: 15px;
+}
+
+.btn:hover {
+  background-color: gold;
+  border-color: #f1faee;
+  color: #f1faee;
+}
+
+a {
+  color: #a8dadc;
+}
+
+a:hover {
+  color: gold;
+}
