@@ -41,10 +41,10 @@ _Included below is a photo of the database table structure - each volunteer will
 * _To use Visual Studio Code to edit this project, follow install instructions [here](https://code.visualstudio.com/)._
 * _To enable command `code`, open VS Code, click on View > Command Palette, type in "shell command", and click on "Shell Command: Install 'code' command in PATH"_
 * _Now, from your terminal, in the project's top level directory, you can run command `code .` to open project in VS Code._ 
-* _{Database backup instructions}_
+* _To recreate database, in the root directory of your terminal run command `rake build[volunteer_tracker]`_
 * _To run tests using rspec, run command `rspec`_
 * _To run a live server, from the root level of the project directory in your terminal, run command `ruby app.rb`_
-* _To interact with application, navigate to localhost:4567 in a web browser._
+* _To interact with application, navigate to http://localhost:4567/ in a web browser._
 * _Exit live server, press Ctrl+C in your terminal_ 
 
 ---
