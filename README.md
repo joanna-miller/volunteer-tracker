@@ -28,7 +28,7 @@
 
 _An application that tracks projects and the volunteers working on them. Each volunteer can be assigned to one project, but each project can have many volunteers assigned to it. This app has the functionality to view, add, update and delete projects. Volunteers can also be added, updated, deleted, and searched for by name._
 _Included below is a photo of the database table structure - each volunteer will have one project_id assigned to it._
-<div><img src="public/volunteer_tracker.png" alt="Project Schema Visualization"></div>
+<div><img src="public/img/volunteer_tracker.png" alt="Project Schema Visualization" width = 350 ></div>
 
 ---
 
