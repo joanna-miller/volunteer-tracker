@@ -1,14 +1,14 @@
-# _{README Template}_
+# _Volunteer Tracker_
 
-#### By _**Jo Miller**_
+### By _**Jo Miller**_
 
-### _This project was created solely for the education of the author(s) and is not in a complete or portfolio-ready state. It should not be considered representative of professional work._
+#### _This project was created solely for the education of the author(s) and is not in a complete or portfolio-ready state. It should not be considered representative of professional work._
 
 \
 [Epicodus](https://www.epicodus.com/) - [Ruby and Rails](https://www.learnhowtoprogram.com/ruby-and-rails/) - [Week 3](https://www.learnhowtoprogram.com/ruby-and-rails/ruby-database-basics/database-basics-independent-project)
 
 
-Date created: 3/8/21–3/11/21
+#### Date created: 3/12/21
 ---
 
 ## Technologies Used
