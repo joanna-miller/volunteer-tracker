@@ -26,20 +26,26 @@ Date created: 3/8/21–3/11/21
 
 ## Description
 
-_{Detailed description of application}_
+_An application that tracks projects and the volunteers working on them. Each volunteer can be assigned to one project, but each project can have many volunteers assigned to it. This app has the functionality to view, add, update and delete projects. Volunteers can also be added, updated, deleted, and searched for by name._
+_Included below is a photo of the database table structure - each volunteer will have one project_id assigned to it._
+<div><img src="public/volunteer_tracker.png" alt="Project Schema Visualization"></div>
 
 ---
 
 ## Setup/Installation Requirements
 
-* _To clone this directory, navigate in your terminal to the desired location of the project and run command `git clone https://github.com/joanna-miller/{repository-name}.git`_
-* _Navigate to top level of the directory with command `cd {repository-name}`_
+* _To clone this directory, navigate in your terminal to the desired location of the project and run command `git clone https://github.com/joanna-miller/volunteer-tracker.git`_
+* _Navigate to top level of the directory with command `cd volunteer-tracker`_
 * _To install bundler for managing gems run command `gem install bundler`_
 * _To install gems into the project run command `bundle install`_
 * _To use Visual Studio Code to edit this project, follow install instructions [here](https://code.visualstudio.com/)._
 * _To enable command `code`, open VS Code, click on View > Command Palette, type in "shell command", and click on "Shell Command: Install 'code' command in PATH"_
 * _Now, from your terminal, in the project's top level directory, you can run command `code .` to open project in VS Code._ 
+* _{Database backup instructions}_
 * _To run tests using rspec, run command `rspec`_
+* _To run a live server, from the root level of the project directory in your terminal, run command `ruby app.rb`_
+* _To interact with application, navigate to localhost:4567 in a web browser._
+* _Exit live server, press Ctrl+C in your terminal_ 
 
 ---
 
