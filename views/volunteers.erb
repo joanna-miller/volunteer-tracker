@@ -1,13 +1,39 @@
-<h1>Volunteers</h1>
+<h1>Volunteer List</h1>
+<h5>Below is a list of all volunteers currently assigned to a project.</h5>
 
 <% if @volunteers.any? %>
+  
+  <form action="/volunteers" method="post">
+    <div class="form-group">
+      <label for="search">Search for a Volunteer by Name</label>
+      <input id="search" name="searched_name" class="form-control" type="text" required>
+    </div>
+    <button type="submit" class="btn btn-info">Search!</button>
+  </form>
+
+  <% if @searched_volunteers %>
+    <% if @searched_volunteers.length > 0 %>
+      <h5>Search Results</h5>
+      <ol>
+        <% @searched_volunteers.each do |volunteer| %>
+          <li><a href="/projects/<%= volunteer.project_id %>/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></li>
+        <% end %>
+      </ol>
+    <% else %>
+      <p>No matching search results found.</p>
+    <% end %>
+  <% end %>
+
+  <h5>Volunteer List</h5>
   <ul>
     <% @volunteers.each do |volunteer| %>
       <li><a href="/projects/<%= volunteer.project_id %>/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></li>
     <% end %>
   </ul>
-  
+
 <% else %>
   <p>There are currently no volunteers signed up.</p>
 <% end %>
+
+<a href="/projects">Back to Projects</a>
 

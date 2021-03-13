@@ -61,7 +61,7 @@ class Volunteer
   end
 
   def self.search(name)
-    searched_volunteers = DB.exec("SELECT * FROM volunteers WHERE name LIKE '#{name}%';")
+    searched_volunteers = DB.exec("SELECT * FROM volunteers WHERE name LIKE '%#{name}%';")
     volunteers = []
     searched_volunteers.each do |volunteer|
       id = volunteer["id"].to_i

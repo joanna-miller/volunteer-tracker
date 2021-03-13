@@ -104,3 +104,19 @@ describe 'the volunteers list path', {:type => :feature} do
     expect(page).to have_content('Volunteer Name: Jasmine')
   end
 end
+
+describe 'the volunteers search path', {:type => :feature} do
+  it 'allows a user to search the list of volunteers by name' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    project_id = test_project.id.to_i
+    test_volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
+    test_volunteer = Volunteer.new({:name => 'Jane', :project_id => project_id, :id => nil})
+    test_volunteer.save
+    visit '/projects'
+    click_link('View All Volunteers')
+    fill_in('searched_name', :with => 'Jane')
+    click_button('Search!')
+    expect(page).to have_content('Search Results')
+  end
+end

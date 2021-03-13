@@ -19,7 +19,7 @@ end
 
 post('/projects') do
   title = params[:title]
-  project = Project.new({title: title})
+  project = Project.new({title: title.gsub(/'/, "''")})
   project.save
   redirect to('/projects')
 end
@@ -50,7 +50,7 @@ end
 
 post('/projects/:id') do
   @project = Project.find(params[:id].to_i)
-  volunteer = Volunteer.new({name: params[:volunteer], project_id: params[:id]})
+  volunteer = Volunteer.new({name: params[:volunteer].gsub(/'/, "''"), project_id: params[:id]})
   volunteer.save
   erb(:project)
 end
@@ -66,6 +66,7 @@ patch('/projects/:id/volunteers/:volunteer_id') do
   @volunteer = Volunteer.find(params[:volunteer_id].to_i)
   @volunteer.update({name: params[:name]})
   @project = Project.find(params[:id].to_i)
+  @projects = Project.all
   erb(:volunteer)
 end
 
@@ -81,4 +82,10 @@ get('/volunteers') do
   erb(:volunteers)
 end
 
-#@volunteer.update({project_id: params[:project_id]})
+post('/volunteers') do
+  @volunteers = Volunteer.all
+  @searched_volunteers = Volunteer.search(params[:searched_name])
+  erb(:volunteers)
+end
+
+
